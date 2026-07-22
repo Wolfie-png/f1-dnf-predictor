@@ -27,8 +27,11 @@ def load_raw():
 
 def build_features(df):
     df = df.copy()
-    df['is_dnf'] = ~df['Status'].apply(is_finished) #bitwise operation to give machine learning an output
-    df['is_dnf'] = df['is_dnf'].astype(int)#########1= DNF 0= finished
+    finished_mask = (
+        df['Status'].str.startswith(('Finished', '+', 'Lapped'), na=False) 
+        | (df['Status'] == 'Lapped')
+    )
+    df['is_dnf'] = (~finished_mask).astype(int)#########1= DNF 0= finished
     
     # Sort chronologically by season and round
     if 'event_date' in df.columns:
