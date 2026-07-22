@@ -1,0 +1,20 @@
+# FastF1 cache - large binary files, regenerable from fetch_data.py
+data/raw/cache/
+
+# Raw  - regenerable, and keeps repo size small.
+#  committed data/processed/features.csv so  can inspect it without running the pipeline
+data/raw/*.csv
+
+
+# Trained models - regenerable via train.py
+models/*.pkl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+.vscode/

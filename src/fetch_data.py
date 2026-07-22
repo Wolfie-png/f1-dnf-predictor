@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 os.makedirs('data/raw/cache', exist_ok=True)
-fastf1.Cache.enable_cache_dir('data/raw/cache')
+fastf1.Cache.enable_cache('data/raw/cache')
 
 def fetch_season(year):
     schedule = fastf1.get_event_schedule(year)

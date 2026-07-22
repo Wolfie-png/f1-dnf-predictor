@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+
+CMD ["python", "-c", "print('Specify a script to run, e.g.: docker compose run app python src/train.py')"]
