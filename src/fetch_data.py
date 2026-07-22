@@ -1,7 +1,9 @@
 import fastf1 
 import pandas as pd
+import os
 
-fastf1.Cache.enable_cache('data/raw/cache')
+os.makedirs('data/raw/cache', exist_ok=True)
+fastf1.Cache.enable_cache_dir('data/raw/cache')
 
 def fetch_season(year):
     schedule = fastf1.get_event_schedule(year)
@@ -13,7 +15,7 @@ def fetch_season(year):
             continue
         try:
             session = fastf1.get_session(year, event.RoundNumber, 'R')
-            session.load()
+            session.load(telemetry=False, laps=False, weather=True)
             results = session.results.copy()
             results['season'] = year
             results['round'] = event.RoundNumber
