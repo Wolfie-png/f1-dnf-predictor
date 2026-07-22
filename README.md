@@ -142,6 +142,7 @@ Actual result vs. prediction:
   current coefficients should be read with that in mind.
 - Weather at prediction time is a historical circuit average, not a live
   forecast — a production version would pull an actual weather API.
+- Logistic regression is not the best model as most of the data is non-linear (for future improvement)
 
 ## Running it locally (without Docker)
 
