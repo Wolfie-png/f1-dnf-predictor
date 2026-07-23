@@ -162,7 +162,7 @@ installing Python or any dependencies locally — just Docker.
 
 ```bash
 # 1. Clone the repo
-git clone <your-repo-url>
+git clone https://github.com/Wolfie-png/f1-dnf-predictor
 cd f1-dnf-predictor
 
 # 2. Build the image (installs all dependencies inside the container)
